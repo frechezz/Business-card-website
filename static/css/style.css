@@ -1,0 +1,259 @@
+/* Keyframes for slide-in animation */
+@keyframes slideInFromCurve {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Root color definitions */
+:root {
+    --icon-color: #ffd700; /* Sun icon color for light theme */
+    --primary-text: #333; /* Dark text for light background */
+    --background-color: #f0f0f0; /* Light background */
+    --button-text: #333; /* Button text color for light theme */
+    --button-bg: #e0e0e0; /* Button background for light theme */
+    --button-border: #333; /* Button border color for light theme */
+}
+
+/* Color definitions for dark mode */
+.dark-mode {
+    --icon-color: #f0f0f0; /* Moon icon color for dark theme */
+    --primary-text: #f0f0f0; /* Light text for dark background */
+    --background-color: #333; /* Dark background */
+    --button-text: #f0f0f0; /* Button text color for dark theme */
+    --button-bg: #4a4a4a; /* Button background for dark theme */
+    --button-border: #f0f0f0; /* Button border color for dark theme */
+}
+
+/* General styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--primary-text);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Content and animation */
+.content {
+    animation: slideInFromCurve 1s cubic-bezier(.03,.18,.34,1) 0s 1 forwards;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Button styles */
+.button {
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--button-text);
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+}
+
+.button i {
+    margin-right: 8px; /* Adds spacing between the icon and text */
+}
+
+.button:hover {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+/* Avatar styles */
+.avatar {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 30px auto;
+    border-radius: 50%;
+}
+
+/* Clock styles */
+#clock {
+    font-size: 1.5em;
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 1px solid var(--button-border);
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .button {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    #clock {
+        font-size: 1.2em;
+    }
+}
+
+/* Text effect styles */
+.text-effect {
+    font-size: 2em;
+    color: #333;
+    text-shadow: 1px 1px 2px #bbb;
+}
+
+/* Progress bar styles */
+#progress-bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background-color: #4caf50;
+    width: 0%;
+    z-index: 100;
+}
+
+#progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 99; /* Ensure it's above the main content but below the progress bar */
+}
+
+/* Theme switcher container */
+#theme-switcher-container {
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icons within the theme switcher */
+#theme-switcher-container i {
+    color: var(--icon-color);
+    margin: 0 5px;
+}
+
+#light-icon {
+    display: block;
+}
+
+#dark-icon {
+    display: none;
+}
+
+.dark-mode #light-icon {
+    display: none;
+}
+
+.dark-mode #dark-icon {
+    display: block;
+}
+
+/* Additional styles for the theme toggle switch */
+.theme-switch {
+    margin: 0 10px;
+}
+
+/* Hidden class for content visibility */
+.hidden {
+    display: none;
+}
+
+/* Apply color changes for dark theme */
+.dark-mode #nickname {
+    color: var(--primary-text);
+}
+
+.dark-mode #clock {
+    color: var(--primary-text);
+    background-color: var(--background-color);
+    border-radius: 5px;
+    border: 1px solid var(--button-border);
+}
+
+/* The switch - the box around the slider */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default checkbox */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

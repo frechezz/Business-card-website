@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRECHEZ BIO PAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div id="theme-switcher-container">
+        <i id="light-icon" class="fas fa-sun"></i> <!-- Sun icon for light theme -->
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <div class="slider round"></div>
+        </label>
+        <i id="dark-icon" class="fas fa-moon"></i> <!-- Moon icon for dark theme -->
+    </div>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div id="content-container" class="hidden">
+        <div class="content animated">
+            <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="Avatar" class="avatar">
+            <h1 class="text-effect" id="nickname">FRECHEZZ</h1>
+            <p>Contact Information:</p>
+            <!-- Contact Buttons -->
+            <a href="YOUR_TELEGRAM_LINK" class="button" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+            <a href="YOUR_DISCORD_LINK" class="button" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+            <a href="YOUR_GITHUB_LINK" class="button" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="YOUR_TELEGRAM_CHANNEL_LINK" class="button" target="_blank"><i class="fab fa-telegram"></i> Telegram Channel</a>
+            <!-- Additional Information -->
+            <div>Address: Russia, Moscow</div>
+            <div id="clock"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
